@@ -61,6 +61,7 @@ public class Client {
     }
 
 
-//    @ManyToOne
-//       private Address address;
+    @ManyToOne
+    private Agency agency;
+
 }
