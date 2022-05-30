@@ -15,14 +15,15 @@
     <title>Client add</title>
 </head>
 <body>
+
 <%--@elvariable id="client" type=""--%>
 <form:form method="post" modelAttribute="client" action="/clients/add">
 
 
-    Imię: <form:input path="firstName"/><br>
-    Nazwisko: <form:input path="lastName"/><br>
-    Pesel<form:input path="pesel"/><br>
-    <input type="submit" value="Save">
+    Imię: <form:input path="firstName"/><br><br>
+    Nazwisko: <form:input path="lastName"/><br><br>
+    Pesel<form:input path="pesel"/><br><br>
+    <input type="submit" value="Zapisz"/>
 
 
 </form:form>

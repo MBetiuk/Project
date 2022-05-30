@@ -1,6 +1,6 @@
 package pl.betiuk.project.model;
 
-public enum TypeEnum {
+public enum UserTypeEnum {
     ADMIN,
     USER
 

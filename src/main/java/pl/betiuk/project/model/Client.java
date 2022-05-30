@@ -61,7 +61,7 @@ public class Client {
     }
 
 
-    @ManyToOne
-    private Agency agency;
+//    @ManyToOne
+//    private Agency agency;
 
 }
