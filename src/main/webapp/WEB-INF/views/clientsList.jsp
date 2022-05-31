@@ -13,16 +13,37 @@
     <title>ClientsList</title>
 </head>
 <body>
-<jsp:useBean id="clientsList" scope="application" type="java.util.List"/>
+<h3> -- Lista klientów -- </h3>
+<%--<jsp:useBean id="clientsList" scope="application" type="java.util.List"/>--%>
+
+
+<table border="1">
+    <thead>
+    <th>Imię</th>
+    <th>Nazwisko</th>
+    <th>Pesel</th>
+
+    </thead>
+<tbody>
 <c:forEach items="${clientsList}" var="client">
+<tr>
+   <td><c:out value="${client.firstName}"/></td>
+    <td><c:out value="${client.lastName}"/></td>
+    <td><c:out value="${client.pesel}"/></td>
+<td>
+    <a href="/clients/all/edit/${client.id}"> Edytuj</a>
+</td>
 
-    <c:out value="${client.firstName}"/>
-    <c:out value="${client.lastName}"/>
-    <c:out value="${client.pesel}"/>
 
+</tr>
 
 
 
 </c:forEach>
- </body>
+</tbody>
+</table>
+<br>
+<br>
+<a href="/clients/add"> Dodaj klienta</a>
+</body>
 </html>

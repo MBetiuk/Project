@@ -3,10 +3,13 @@ package pl.betiuk.project.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.betiuk.project.model.Client;
 import pl.betiuk.project.repository.ClientRepository;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/clients")
@@ -20,13 +23,14 @@ private final ClientRepository clientRepository;
     }
 
 
-//    @GetMapping("/all")
-//    public String showClients (Model model, @ModelAttribute("client") Client client){
-//        List<Client> clientList = clientRepository.findAll();
-//        model.addAttribute("clientsList", clientList);
-//        return "clientsList";
-//
-//    }
+    @GetMapping("/all")
+
+    public String showClients (Model model){
+        List<Client> clientList = clientRepository.findAll();
+        model.addAttribute("clientsList", clientList);
+        return "clientsList";
+
+    }
 
     @GetMapping("/add")
     public String showAddClientForm( Model model){
@@ -38,8 +42,9 @@ private final ClientRepository clientRepository;
 
         clientRepository.save(client);
         return "mmm";
-//         TODO: 30/05/2022 do zmiany
 
     }
+
+
 
 }
