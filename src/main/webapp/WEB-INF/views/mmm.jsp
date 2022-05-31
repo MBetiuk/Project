@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-dupa dupka blada
+sukces!!
 </body>
 </html>

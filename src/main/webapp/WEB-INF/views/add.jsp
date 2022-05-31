@@ -20,9 +20,12 @@
 <form:form method="post" modelAttribute="client" action="/clients/add">
 
 
-    Imię: <form:input path="firstName"/><br><br>
-    Nazwisko: <form:input path="lastName"/><br><br>
-    Pesel<form:input path="pesel"/><br><br>
+    <label>Imię: </label>
+    <form:input path="firstName"/><br><br>
+    <label>Nazwisko: </label>
+    <form:input path="lastName"/><br><br>
+    <label>Pesel: </label>
+    <form:input path="pesel"/><br><br>
     <input type="submit" value="Zapisz"/>
 
 
