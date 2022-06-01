@@ -2,10 +2,7 @@ package pl.betiuk.project.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.betiuk.project.model.Client;
 import pl.betiuk.project.repository.ClientRepository;
 
@@ -16,7 +13,7 @@ import java.util.List;
 public class ClientController {
 
 
-private final ClientRepository clientRepository;
+    private final ClientRepository clientRepository;
 
     public ClientController(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
@@ -25,7 +22,7 @@ private final ClientRepository clientRepository;
 
     @GetMapping("/all")
 
-    public String showClients (Model model){
+    public String showClients(Model model) {
         List<Client> clientList = clientRepository.findAll();
         model.addAttribute("clientsList", clientList);
         return "clientsList";
@@ -33,10 +30,11 @@ private final ClientRepository clientRepository;
     }
 
     @GetMapping("/add")
-    public String showAddClientForm( Model model){
+    public String showAddClientForm(Model model) {
         model.addAttribute("client", new Client());
         return "add";
     }
+
     @PostMapping("/add")
     public String showAddClientForm(Client client) {
 
@@ -45,6 +43,11 @@ private final ClientRepository clientRepository;
 
     }
 
+    @GetMapping("/update/{id}")
+    public String updateClient(@PathVariable Long id,  Model model ){
+        model.addAttribute("client", clientRepository.findById(id));
 
+        return "clientUpdate";
+    }
 
 }

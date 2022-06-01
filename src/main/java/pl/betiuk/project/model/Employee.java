@@ -18,18 +18,16 @@ public class Employee {
 
     private String firstName;
 
-    public EmployeeTypeEnum getEmployeeTypeEnum() {
-        return employeeTypeEnum;
-    }
 
-    public void setEmployeeTypeEnum(EmployeeTypeEnum employeeTypeEnum) {
-        this.employeeTypeEnum = employeeTypeEnum;
-    }
 
     private String lastName;
 //    private String type;  // TODO: 30/05/2022 czy to pole ma być listą??
 
 private EmployeeTypeEnum employeeTypeEnum;
+
+
+
+
 //    @PESEL
 //    private String pesel;
 
@@ -73,5 +71,12 @@ private EmployeeTypeEnum employeeTypeEnum;
         this.lastName = lastName;
     }
 
+    public EmployeeTypeEnum getEmployeeTypeEnum() {
+        return employeeTypeEnum;
+    }
+
+    public void setEmployeeTypeEnum(EmployeeTypeEnum employeeTypeEnum) {
+        this.employeeTypeEnum = employeeTypeEnum;
+    }
 
 }

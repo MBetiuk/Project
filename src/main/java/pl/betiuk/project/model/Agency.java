@@ -9,15 +9,29 @@ public class Agency {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Long id;
-    private String agencyNo;
 
+    @OneToOne
+
+    private String agencyNo;
+    private String DM;
+    private String AM;
 
     public Agency() {
     }
 
-    public Agency(Long id, String agencyNo) {
+    public Agency(Long id, String agencyNo, String DM, String AM) {
         this.id = id;
         this.agencyNo = agencyNo;
+        this.DM = DM;
+        this.AM = AM;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getAgencyNo() {
@@ -28,11 +42,19 @@ public class Agency {
         this.agencyNo = agencyNo;
     }
 
-    public Long getId() {
-        return id;
+    public String getDM() {
+        return DM;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setDM(String DM) {
+        this.DM = DM;
+    }
+
+    public String getAM() {
+        return AM;
+    }
+
+    public void setAM(String AM) {
+        this.AM = AM;
     }
 }

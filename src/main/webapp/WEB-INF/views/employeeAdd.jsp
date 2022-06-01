@@ -13,7 +13,7 @@
     <title>Employee add</title>
 </head>
 <body>
-<h3>Dodaj doradcę</h3>
+<h3>Dodaj pracownika</h3>
 <%--@elvariable id="employee" type=""--%>
 <form:form method="post" modelAttribute="employee">
 

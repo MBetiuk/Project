@@ -31,7 +31,7 @@
     <td><c:out value="${client.lastName}"/></td>
     <td><c:out value="${client.pesel}"/></td>
 <td>
-    <a href="/clients/all/edit/${client.id}"> Edytuj</a>
+    <a href="/clients/update/${client.id}"> Edytuj</a>
 </td>
 
 
