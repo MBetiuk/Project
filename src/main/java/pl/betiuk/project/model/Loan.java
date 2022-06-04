@@ -1,10 +1,16 @@
 package pl.betiuk.project.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+import javax.persistence.*;
 import java.util.Date;
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Entity
 @Table(name = "loans")
 public class Loan {
@@ -20,5 +26,9 @@ public class Loan {
     private Integer total;
     private Integer rate;
     private String agentName;
+
+//    @ManyToOne
+//    @JoinColumn(name = "id")
+//    private Client client;
 
 }
