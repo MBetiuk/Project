@@ -27,8 +27,10 @@ public class Address {
     private String town;
 
 
-@OneToMany(mappedBy = "address")
-  private List<Client> clientList;
+//@OneToMany
+//@JoinColumn (name = "client_id")
+//  private List<Client> clientList;
+    //lepiej
 
 
 

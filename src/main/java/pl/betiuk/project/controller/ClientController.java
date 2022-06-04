@@ -41,7 +41,7 @@ public class ClientController {
     public String showAddClientForm(Client client) {
 
         clientRepository.save(client);
-        return "redirect:/address/add";
+        return "redirect:/address/add"+client.getId();
 
     }
 

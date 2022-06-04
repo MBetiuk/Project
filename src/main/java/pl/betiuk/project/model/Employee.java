@@ -22,8 +22,8 @@ public class Employee {
 
     @ManyToOne
     @JoinColumn(name = "super_visor_id")
-    private Employee superVisor;
-// TODO: 04/06/2022 dlaczego przy hierarchii w jednej tabeli relacja jest do id obiektu?
+    private Employee superVisor;  // TODO: 04/06/2022 czy oddzielna encja dla supervisora????
+
 
 
 //    @ManyToOne

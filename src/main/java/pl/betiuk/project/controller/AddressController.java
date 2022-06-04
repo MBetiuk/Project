@@ -5,20 +5,24 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.betiuk.project.model.Address;
 import pl.betiuk.project.repository.AddressRepository;
+import pl.betiuk.project.service.ClientService;
 
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/address")
 public class AddressController {
    private final AddressRepository addressRepository;
+   private final ClientService clientService;
 
-    @GetMapping("/add")
-    public String addAddress (Model model){
+    @GetMapping("/add/{clientId}")
+    public String addAddress (Model model, @PathVariable Long clientId){
         model.addAttribute("address", new Address());
+        model.addAttribute("client", clientService.findById(clientId));
         return "address";
     }
 
