@@ -1,5 +1,6 @@
 package pl.betiuk.project.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,18 +10,15 @@ import pl.betiuk.project.model.Employee;
 import pl.betiuk.project.model.EmployeeTypeEnum;
 import pl.betiuk.project.repository.EmployeeRepository;
 
-import java.util.List;
-
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/empl")
 public class EmployeeController {
 
     EmployeeTypeEnum employeeTypeEnum;
     private final EmployeeRepository employeeRepository;
 
-    public EmployeeController(EmployeeRepository employeeRepository) {
-        this.employeeRepository = employeeRepository;
-    }
+
 
 
     @GetMapping("/add")

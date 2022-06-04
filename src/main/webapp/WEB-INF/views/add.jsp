@@ -25,6 +25,7 @@
     <form:input path="lastName"/><br><br>
     <label>Pesel: </label>
     <form:input path="pesel"/><br><br>
+
     <input type="submit" value="Zapisz"/>
 
 
