@@ -1,5 +1,6 @@
 package pl.betiuk.project.controller;
 
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,7 +41,7 @@ public class ClientController {
     public String showAddClientForm(Client client) {
 
         clientRepository.save(client);
-        return "redirect:/address";
+        return "redirect:/address/add";
 
     }
 

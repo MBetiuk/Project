@@ -1,16 +1,13 @@
 package pl.betiuk.project.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "employees")
 public class Employee {
@@ -23,13 +20,15 @@ public class Employee {
     private String lastName;
     private EmployeeTypeEnum employeeTypeEnum;
 
-//    @ManyToOne
-//    @JoinColumn(name = "super_visor_id")
-//    private Employee superVisor;
+    @ManyToOne
+    @JoinColumn(name = "super_visor_id")
+    private Employee superVisor;
+// TODO: 04/06/2022 dlaczego przy hierarchii w jednej tabeli relacja jest do id obiektu?
+
 
 //    @ManyToOne
-//    @JoinColumn(name = "id")
-//    private Address address;
+//    @JoinColumn(name = "address_id")
+//        private Address address;
 
 
 //    @PESEL
