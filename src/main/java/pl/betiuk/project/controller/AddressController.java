@@ -22,13 +22,13 @@ public class AddressController {
     @GetMapping("/add/{clientId}")
     public String addAddress (Model model, @PathVariable Long clientId){
         model.addAttribute("address", new Address());
-        model.addAttribute("client", clientService.findById(clientId));
+        model.addAttribute("client" , clientService.findById(clientId));
         return "address";
     }
 
 
-    @PostMapping("/add")
-    public String addAddress (Address address){
+    @PostMapping("/add/{clientId}")
+    public String addAddress (Address address, @PathVariable Long clientId){
         addressRepository.save(address);
         return "mmm";
     }

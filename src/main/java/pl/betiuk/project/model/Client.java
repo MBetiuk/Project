@@ -23,8 +23,12 @@ public class Client {
     private String pesel;
 //    private TypeEnum clientype;
 
-//    @ManyToOne (mappedBy = "clientList")
+    @OneToOne(mappedBy = "client")
+    private Address address;
+
+//    @ManyToOne (mappedBy = "clientList") tam gdzie mapowanie, cascade.all.orphanremoval !!
 //    private Address address; -->> lepiej onetoone
+
 
     // TODO: 04/06/2022  - nie zapisuje mi się klient + adres, nie zapisuje mi się address_id, taka sama relacja
     //  będzie z pracownik+adres

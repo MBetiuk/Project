@@ -9,6 +9,7 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @Entity
+@EqualsAndHashCode
 @Table(name = "employees")
 public class Employee {
 
@@ -29,6 +30,7 @@ public class Employee {
 //    @ManyToOne
 //    @JoinColumn(name = "address_id")
 //        private Address address;
+
 
 
 //    @PESEL

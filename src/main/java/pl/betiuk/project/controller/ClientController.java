@@ -22,6 +22,7 @@ public class ClientController {
     private final ClientRepository clientRepository;
 
 
+
     @GetMapping("/all")
 
     public String showClients(Model model) {
@@ -41,7 +42,7 @@ public class ClientController {
     public String showAddClientForm(Client client) {
 
         clientRepository.save(client);
-        return "redirect:/address/add"+client.getId();
+        return "redirect:/address/add/"+client.getId();
 
     }
 

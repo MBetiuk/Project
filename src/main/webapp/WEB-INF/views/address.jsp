@@ -15,8 +15,8 @@
 </head>
 <body>
 <%--@elvariable id="address" type=""--%>
-<form:form method="post" modelAttribute="address">
-    <form:hidden path="user.id"/>
+<form:form method="post" modelAttribute="address" >
+    <form:hidden path="client.id"/>
     <label>Ulica: </label>
     <form:input path="streetName"/><br><br>
     <label>Nr domu: </label>
