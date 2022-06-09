@@ -23,9 +23,9 @@ public class Employee {
     private String lastName;
     private EmployeeTypeEnum employeeTypeEnum;
 
-//    @ManyToOne
-//    @JoinColumn(name = "super_visor_id")
-//    private Employee superVisor;
+    @ManyToOne
+    @JoinColumn(name = "super_visor_id")
+    private Employee superVisor;
 
 //    @ManyToOne
 //    @JoinColumn(name = "id")

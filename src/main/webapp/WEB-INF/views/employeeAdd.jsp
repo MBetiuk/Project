@@ -29,9 +29,11 @@
 
     </form:select>
 
-    <%--    Rodzaj zatrudnienia: <form:radiobuttons path="type" element="enum"/><br><br>--%>
-    <%--    <form:input path="type"/><br><br>--%>
-    <%--    <form:radiobuttons path="type" itemValue="DM"/><br><br>--%>
+    <label>Przełożony: </label>
+    <form:select path="superVisor.id">
+        <form:option value="-" label="--Wybierz--"/>
+        <form:options items="${superVisors}"/>
+    </form:select>
     <input type="submit" value="Zapisz"/>
 </form:form>
 </body>
