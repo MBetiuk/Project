@@ -1,21 +1,18 @@
 <%--
   Created by IntelliJ IDEA.
   User: magda
-  Date: 29/05/2022
-  Time: 13:57
+  Date: 10/06/2022
+  Time: 21:45
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %><html>
 <head>
-    <title>ClientsList</title>
+    <title>EmployeeList</title>
 </head>
 <body>
-<h3> -- Lista klientów -- </h3>
-<%--<jsp:useBean id="clientsList" scope="application" type="java.util.List"/>--%>
-
+<h3> -- Lista pracowników -- </h3>
 <style>
     table {
         margin-bottom: 20px;
@@ -57,43 +54,49 @@
     <thead>
     <th>Imię</th>
     <th>Nazwisko</th>
-    <th>Pesel</th>
+    <th>Stanowisko</th>
+    <th>Przełożony</th>
     <th>Akcje</th>
 
     </thead>
-<tbody>
-<c:forEach items="${clientsList}" var="client">
-<tr>
-   <td><c:out value="${client.firstName}"/></td>
-    <td><c:out value="${client.lastName}"/></td>
-    <td><c:out value="${client.pesel}"/></td>
-<td>
-    <a href="/clients/update/${client.id}"> Edytuj</a>
-    <a href="/clients/delete/${client.id}"> Usuń</a>
+    <tbody>
+    <c:forEach items="${employeeList}" var="employee">
+        <tr>
+            <td><c:out value="${employee.firstName}"/></td>
+            <td><c:out value="${employee.lastName}"/></td>
+            <td><c:out value="${employee.employeeTypeEnum}"/></td>
+            <td><c:out value="${employee.superVisor.firstName}${employee.superVisor.lastName}"/></td>
 
-</td>
+            <%--todo - zmienić, żeby wyświetlało się IMIĘ i nazwisko--%>
+
+            <td>
+                <a href="/empl/update/${employee.id}"> Edytuj</a>
+                <a href="/empl/delete/${employee.id}"> Usuń</a>
+
+            </td>
 
 
-</tr>
+        </tr>
 
 
 
-</c:forEach>
-</tbody>
+    </c:forEach>
+    </tbody>
 </table>
 <br>
 <br>
 <table>
-<thead>
-<tr>
-    <td>
+    <thead>
+    <tr>
+        <td>
 
-        <a href="/clients/add"> Dodaj klienta</a>
-    </td>
-</tr>
-</thead>
+            <a href="/empl/add"> Dodaj pracownika</a>
+        </td>
+    </tr>
+    </thead>
 
 
 </table>
 </body>
 </html>
+

@@ -1,14 +1,14 @@
 package pl.betiuk.project.service;
 
-import pl.betiuk.project.model.Client;
 import pl.betiuk.project.model.Employee;
 
-import java.util.List;
+import java.util.Optional;
 
 public interface EmployeeService <T>{
 
 
-    List<Employee> getList();
+
+    Optional<Employee> findById (Long id);
 
 
 }

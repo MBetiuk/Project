@@ -1,24 +1,21 @@
 package pl.betiuk.project.controller;
 
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.betiuk.project.model.Employee;
-import pl.betiuk.project.model.EmployeeTypeEnum;
 import pl.betiuk.project.repository.EmployeeRepository;
 
 import java.util.List;
 
 @Controller
-@RequiredArgsConstructor
 @RequestMapping("/empl")
 public class EmployeeController {
     private final EmployeeRepository employeeRepository;
+
+    public EmployeeController(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
 
 
     @ModelAttribute("superVisors")
@@ -38,7 +35,7 @@ public class EmployeeController {
     public String addEmployee(Employee employee) {
 
         employeeRepository.save(employee);
-        return "mmm";
+        return "redirect:/empl/all";
 
     }
 
@@ -46,7 +43,24 @@ public class EmployeeController {
     public String showEmployee(Model model) {
         List<Employee> employeeList = employeeRepository.findAll();
         model.addAttribute("employeeList", employeeList);
-        return "mmm";
+        return "employeeList";
+    }
 
+    @GetMapping("/update/{id}")
+    public String updateEmployee(@PathVariable Long id, Model model){
+        model.addAttribute("employee", employeeRepository.findById(id));
+        return "employeeUpdate";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateEmployee(Employee employee){
+        employeeRepository.save(employee);
+        return "redirect:/empl/all";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteEmployee(@PathVariable Long id){
+        employeeRepository.deleteById(id);
+        return "redirect:/empl/all";
     }
 }

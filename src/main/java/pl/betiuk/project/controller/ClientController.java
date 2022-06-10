@@ -17,23 +17,22 @@ public class ClientController {
 
 
     private final ClientRepository clientRepository;
-    private final ClientService clientService;
 
-    public ClientController(ClientRepository clientRepository, ClientService clientService) {
+    public ClientController(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
-        this.clientService = clientService;
+
     }
 
     @GetMapping("/add")
-    public String showAddClientForm(Model model) {
+    public String addClientForm(Model model) {
         model.addAttribute("client", new Client());
         return "add";
     }
 
     @PostMapping("/add")
-    public String showAddClientForm(Client client) {
+    public String addClientForm(Client client) {
         clientRepository.save(client);
-        return "mmm";
+        return "redirect:/clients/all";
 
     }
 
@@ -53,7 +52,7 @@ public class ClientController {
     @PostMapping("/update/{id}")
     public String updateClient(Client client){
         clientRepository.save(client);
-        return "mmm";
+        return "redirect:/clients/all";
 
     }
 
