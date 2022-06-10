@@ -19,4 +19,9 @@ public class ClientServiceImpl<T> implements ClientService<Client> {
     public Optional<Client> findById(Long id) {
         return clientRepository.findById(id);
     }
+
+    @Override
+    public void delete(Long id) {
+        clientRepository.deleteById(id);
+    }
 }

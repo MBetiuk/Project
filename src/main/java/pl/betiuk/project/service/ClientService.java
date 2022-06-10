@@ -7,4 +7,6 @@ import java.util.Optional;
 public interface ClientService<T> {
 
     Optional<Client> findById(Long id);
+
+    void delete(Long id);
 }

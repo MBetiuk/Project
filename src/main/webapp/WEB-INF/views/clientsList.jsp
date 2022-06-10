@@ -32,6 +32,8 @@
     <td><c:out value="${client.pesel}"/></td>
 <td>
     <a href="/clients/update/${client.id}"> Edytuj</a>
+    <a href="/clients/delete/${client.id}"> Usuń</a>
+
 </td>
 
 

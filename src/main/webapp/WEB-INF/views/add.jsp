@@ -15,7 +15,7 @@
     <title>Client add</title>
 </head>
 <body>
-
+<h3>Dodaj klienta</h3>
 <%--@elvariable id="client" type=""--%>
 <form:form method="post" modelAttribute="client" action="/clients/add">
 
