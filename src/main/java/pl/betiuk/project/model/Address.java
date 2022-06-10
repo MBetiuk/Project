@@ -27,9 +27,9 @@ public class Address {
     private String town;
 
 
-    @OneToOne
-    @JoinColumn(name = "client_id")
-    private Client client;
+//    @OneToOne
+//    @JoinColumn(name = "client_id")
+//    private Client client;
 
 //@OneToMany
 //@JoinColumn (name = "client_id")
