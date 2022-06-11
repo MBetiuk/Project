@@ -12,6 +12,8 @@ import java.util.List;
 @RequestMapping("/empl")
 public class EmployeeController {
     private final EmployeeRepository employeeRepository;
+    private Long id;
+    private Model model;
 
     public EmployeeController(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
@@ -58,7 +60,15 @@ public class EmployeeController {
         return "redirect:/empl/all";
     }
 
-    @GetMapping("/delete/{id}")
+
+
+    @GetMapping("/question/{id}")
+    public String question(@PathVariable Long id, Model model){
+        model.addAttribute("employee", employeeRepository.findById(id));
+        return "emplQuestion";
+    }
+
+    @PostMapping("/delete/{id}")
     public String deleteEmployee(@PathVariable Long id){
         employeeRepository.deleteById(id);
         return "redirect:/empl/all";
