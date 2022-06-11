@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pl.betiuk.project.model.Address;
 import pl.betiuk.project.model.Client;
+import pl.betiuk.project.repository.AddressRepository;
 import pl.betiuk.project.repository.ClientRepository;
 
 import java.util.List;
@@ -19,9 +21,8 @@ public class ClientController {
 
     private final ClientRepository clientRepository;
 
-    public ClientController(ClientRepository clientRepository) {
+    public ClientController(ClientRepository clientRepository, AddressRepository addressRepository) {
         this.clientRepository = clientRepository;
-
     }
 
     @GetMapping("/add")
