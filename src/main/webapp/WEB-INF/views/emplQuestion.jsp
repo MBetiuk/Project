@@ -1,18 +1,19 @@
 <%--
   Created by IntelliJ IDEA.
   User: magda
-  Date: 10/06/2022
-  Time: 21:45
+  Date: 11/06/2022
+  Time: 15:39
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %><html>
 <head>
-    <title>EmployeeList</title>
+    <title>Employee Question</title>
 </head>
 <body>
-<h3> -- Lista pracowników -- </h3>
+<h3> -- Czy chcesz usunąć pracownika? -- </h3>
+
 <style>
     table {
         margin-bottom: 20px;
@@ -52,49 +53,26 @@
 </style>
 <table >
     <thead>
-    <th>Imię</th>
-    <th>Nazwisko</th>
-    <th>Stanowisko</th>
-    <th>Przełożony</th>
-    <th>Akcje</th>
-
-    </thead>
-    <tbody>
-    <c:forEach items="${employeeList}" var="employee">
-        <tr>
-            <td><c:out value="${employee.firstName}"/></td>
-            <td><c:out value="${employee.lastName}"/></td>
-            <td><c:out value="${employee.employeeTypeEnum}"/></td>
-            <td><c:out value="${employee.superVisor.firstName}${employee.superVisor.lastName}"/></td>
-
-            <td>
-                <a href="/empl/update/${employee.id}"> Edytuj</a>
-                <a href="/empl/question/${employee.id}"> Usuń</a>
-
-            </td>
-
-
-        </tr>
-
-
-
-    </c:forEach>
-    </tbody>
-</table>
-<br>
-<br>
-<table>
-    <thead>
     <tr>
         <td>
+<%--@elvariable id="employee" type=""--%>
+<form:form method="post" action="/empl/delete/${employee.id}" modelAttribute="employee">
+<%--    <a href="/empl/delete/{id}"> Usuń</a>--%>
 
-            <a href="/empl/add"> Dodaj pracownika</a>
+    <input type="submit" value="TAK">
+</form:form>
+
+        </td>
+
+        <td>
+<%--            <form:form method="get" action="/empl" modelAttribute="employee">--%>
+                <a href="/empl/all"> Nie usuwaj</a>
+<%--            </form:form>--%>
+
         </td>
     </tr>
     </thead>
 
-
 </table>
 </body>
 </html>
-
