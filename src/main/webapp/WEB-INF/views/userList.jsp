@@ -1,18 +1,20 @@
 <%--
   Created by IntelliJ IDEA.
   User: magda
-  Date: 10/06/2022
-  Time: 21:45
+  Date: 11/06/2022
+  Time: 09:13
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %><html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<html>
 <head>
-    <title>EmployeeList</title>
+    <title>UserList</title>
 </head>
 <body>
-<h3> -- Lista pracowników -- </h3>
+<h3> -- Lista użytkowników -- </h3>
+
 <style>
     table {
         margin-bottom: 20px;
@@ -52,24 +54,22 @@
 </style>
 <table >
     <thead>
-    <th>Imię</th>
-    <th>Nazwisko</th>
-    <th>Stanowisko</th>
-    <th>Przełożony</th>
+    <th>Nick</th>
+    <th>Email</th>
+    <th>Użytkownik / Administrator</th>
     <th>Akcje</th>
 
     </thead>
     <tbody>
-    <c:forEach items="${employeeList}" var="employee">
+    <c:forEach items="${userList}" var="user">
         <tr>
-            <td><c:out value="${employee.firstName}"/></td>
-            <td><c:out value="${employee.lastName}"/></td>
-            <td><c:out value="${employee.employeeTypeEnum}"/></td>
-            <td><c:out value="${employee.superVisor.firstName}${employee.superVisor.lastName}"/></td>
+            <td><c:out value="${user.nick}"/></td>
+            <td><c:out value="${user.email}"/></td>
+            <td><c:out value="${user.userTypeEnum}"/></td>
 
             <td>
-                <a href="/empl/update/${employee.id}"> Edytuj</a>
-                <a href="/empl/delete/${employee.id}"> Usuń</a>
+                <a href="/user/update/${user.id}"> Edytuj</a>
+                <a href="/user/delete/${user.id}"> Usuń</a>
 
             </td>
 
@@ -81,20 +81,5 @@
     </c:forEach>
     </tbody>
 </table>
-<br>
-<br>
-<table>
-    <thead>
-    <tr>
-        <td>
-
-            <a href="/empl/add"> Dodaj pracownika</a>
-        </td>
-    </tr>
-    </thead>
-
-
-</table>
 </body>
 </html>
-

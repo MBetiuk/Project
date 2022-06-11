@@ -31,14 +31,4 @@ public class Employee {
 //    @JoinColumn(name = "id")
 //    private Address address;
 
-
-//    @PESEL
-//    private String pesel;
-
-    // modelowanie hiearchi w sql
-//    private Agent przelozony;
-    //    private String section;  -- druga tabela i relacja 1:1?
-//    private String agency; - relacja 1:1?
-
-
 }

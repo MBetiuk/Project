@@ -9,6 +9,8 @@ import pl.betiuk.project.model.Address;
 public interface AddressRepository extends JpaRepository <Address, Long> {
 
 
+
+
 }
 
 

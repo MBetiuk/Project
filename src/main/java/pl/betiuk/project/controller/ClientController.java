@@ -1,12 +1,13 @@
 package pl.betiuk.project.controller;
 
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import pl.betiuk.project.model.Client;
 import pl.betiuk.project.repository.ClientRepository;
-import pl.betiuk.project.service.ClientService;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class ClientController {
     @PostMapping("/add")
     public String addClientForm(Client client) {
         clientRepository.save(client);
-        return "redirect:/clients/all";
+        return "redirect:/address/add";
 
     }
 

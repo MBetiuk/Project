@@ -24,9 +24,9 @@ public class Client {
 
 
 
-//    @ManyToOne
-//    @JoinColumn(name = "address_id")
-//    private Address address;
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 
 
 }
