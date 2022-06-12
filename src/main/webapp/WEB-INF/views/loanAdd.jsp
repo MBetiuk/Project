@@ -20,7 +20,7 @@
 <form:form method="post" modelAttribute="loan">
 
     <label>Data zawarcia: </label>
-    <form:input path="issueDate"/><br><br>
+    <form:input type="date" path="issueDate"/><br><br>
     <label>Okres trwania pożyczki w miesiącach: </label>
     <form:input path="term"/><br><br>
     <label>Kwota pożyczki: </label>
