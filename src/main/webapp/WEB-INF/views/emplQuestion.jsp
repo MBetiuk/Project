@@ -56,11 +56,11 @@
     <tr>
         <td>
 <%--@elvariable id="employee" type=""--%>
-<form:form method="post" action="/empl/delete/${employee.id}" modelAttribute="employee">
-<%--    <a href="/empl/delete/{id}"> Usuń</a>--%>
+<%--<form:form method="post" action="/empl/delete/${employee.id}" modelAttribute="employee">--%>
+    <a href="/empl/delete/${employee.id}"> Usuń</a>
 
-    <input type="submit" value="TAK">
-</form:form>
+<%--    <input type="submit" value="TAK">--%>
+<%--</form:form>--%>
 
         </td>
 
