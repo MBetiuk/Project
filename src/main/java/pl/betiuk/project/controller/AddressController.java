@@ -35,7 +35,7 @@ public class AddressController {
     public String addAddress(Address address) {
 //        address.setClient(clientRepository.findById(clientId).orElseThrow(EntityNotFoundException::new));
         addressRepository.save(address);
-        return "redirect:/address/update/{id}";
+        return "redirect:/clients/all";
     }
 
 
