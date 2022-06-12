@@ -12,7 +12,7 @@ public interface EmployeeService <T>{
 
     List<Employee> findAll();
 
-    List<T> getList();
+
 
 
 

@@ -28,10 +28,7 @@ public class EmployeeServiceImpl<T> implements EmployeeService<Employee> {
         return employeeRepository.findAll();
     }
 
-    @Override
-    public List<Employee> getList() {
-        return employeeRepository.getList();
-    }
+
 
 
 }

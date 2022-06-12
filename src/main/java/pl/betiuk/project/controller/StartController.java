@@ -22,8 +22,4 @@ public class StartController {
         return "login";
         // TODO: 12/06/2022 zrobić przekierowanie na strone logowania
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> korekta po awarii!!

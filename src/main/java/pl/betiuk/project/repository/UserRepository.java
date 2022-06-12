@@ -6,4 +6,5 @@ import pl.betiuk.project.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository <User, Long> {
+    User findUserByNick(String nick);
 }
