@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.betiuk.project.model.Employee;
 import pl.betiuk.project.repository.EmployeeRepository;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Controller
@@ -64,11 +65,11 @@ public class EmployeeController {
 
     @GetMapping("/question/{id}")
     public String question(@PathVariable Long id, Model model){
-        model.addAttribute("employee", employeeRepository.findById(id));
+        model.addAttribute("employee", employeeRepository.findById(id).orElseThrow(EntityNotFoundException::new));
         return "emplQuestion";
     }
 
-    @PostMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     public String deleteEmployee(@PathVariable Long id){
         employeeRepository.deleteById(id);
         return "redirect:/empl/all";
