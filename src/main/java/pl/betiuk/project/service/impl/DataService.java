@@ -8,8 +8,13 @@ import pl.betiuk.project.repository.EmployeeRepository;
 @Service
 public class DataService {
 
+<<<<<<< HEAD
     private AgencyRepository agencyRepository;
     private EmployeeRepository employeeRepository;
+=======
+    private final AgencyRepository agencyRepository;
+    private final EmployeeRepository employeeRepository;
+>>>>>>> korekta po awarii!!
 
 
     public DataService(AgencyRepository agencyRepository, EmployeeRepository employeeRepository) {
@@ -36,4 +41,8 @@ public class DataService {
 
     }
     //AM
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> korekta po awarii!!

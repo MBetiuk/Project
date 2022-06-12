@@ -21,9 +21,13 @@
         margin-bottom: 20px;
         border-spacing: 0;
         border: 1px solid lightgrey;
+<<<<<<< HEAD
 
     }
 
+=======
+    }
+>>>>>>> korekta po awarii!!
     th, td {
         font-size: 12px;
         padding: 7px;
@@ -31,24 +35,36 @@
         border-top-width: 0;
         border-left-width: 0;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> korekta po awarii!!
     body {
         font-size: 12px;
         margin: 30px;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> korekta po awarii!!
     input {
         display: block;
         /*margin-bottom: 10px;*/
         margin: 0 15px 0 15px ;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> korekta po awarii!!
     a {
         padding: 5px;
         text-decoration: none;
         color: black;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> korekta po awarii!!
     button {
         margin: 0px 15px 0px 15px;
     }
