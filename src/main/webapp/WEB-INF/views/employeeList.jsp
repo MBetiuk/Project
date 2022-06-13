@@ -7,11 +7,36 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %><html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<html>
 <head>
     <title>EmployeeList</title>
 </head>
 <body>
+<%--@elvariable id="filter" type=""--%>
+<h3> -- Filtruj -- </h3>
+<form:form method="post"  modelAttribute="filter">
+
+<%--<label>Rodzaj stanowiska: </label>--%>
+<%--<form:select path="employeeTypeEnum">--%>
+<%--    <form:option value="" label="--Wybierz stanowisko--"/>--%>
+<%--    &lt;%&ndash;@elvariable id="employee" type=""&ndash;%&gt;--%>
+<%--    <form:options itemLabel="employeeTypeEnum" items="{employeeTypeEnum}"/>--%>
+
+<%--</form:select>--%>
+    <input type="submit" value="Filtruj"/>
+
+    <label>Przełożony: </label>
+    <form:select path="employee">
+        <form:option value="" label="--Wybierz--"/>
+        <form:options itemLabel="superVisor.firstName" items="${superVisorList}"/>
+    </form:select>
+    <input type="submit" value="Filtruj"/>
+</form:form>
+
+
+
 <h3> -- Lista pracowników -- </h3>
 <style>
     table {
@@ -50,6 +75,8 @@
         margin: 0px 15px 0px 15px;
     }
 </style>
+
+
 <table >
     <thead>
     <th>Imię</th>
@@ -96,5 +123,3 @@
 
 </table>
 </body>
-</html>
-

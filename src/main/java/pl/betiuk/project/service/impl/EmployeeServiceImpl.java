@@ -2,6 +2,7 @@ package pl.betiuk.project.service.impl;
 
 import org.springframework.stereotype.Service;
 import pl.betiuk.project.model.Employee;
+import pl.betiuk.project.model.Filter;
 import pl.betiuk.project.repository.EmployeeRepository;
 import pl.betiuk.project.service.EmployeeService;
 
@@ -14,9 +15,22 @@ public class EmployeeServiceImpl<T> implements EmployeeService<Employee> {
     private final EmployeeRepository employeeRepository;
 
 
+
     public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
+
+   public  List<Employee> search(Filter filter){
+        String superVisor;
+        if (filter.getEmployee() == null) {
+            return employeeRepository.findAll();
+        }else {
+            superVisor = String.valueOf(filter.getEmployee().getSuperVisor().getId());
+        }
+        List<Employee> employeeList = employeeRepository.search(superVisor);
+        return employeeList;
+    }
+
 
     @Override
     public Employee findById(Long id) {

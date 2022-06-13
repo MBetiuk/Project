@@ -4,7 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.betiuk.project.model.Employee;
+import pl.betiuk.project.model.Filter;
 import pl.betiuk.project.repository.EmployeeRepository;
+import pl.betiuk.project.service.impl.EmployeeServiceImpl;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -13,11 +15,13 @@ import java.util.List;
 @RequestMapping("/empl")
 public class EmployeeController {
     private final EmployeeRepository employeeRepository;
+    private final EmployeeServiceImpl employeeService;
     private Long id;
     private Model model;
 
-    public EmployeeController(EmployeeRepository employeeRepository) {
+    public EmployeeController(EmployeeRepository employeeRepository, EmployeeServiceImpl employeeService) {
         this.employeeRepository = employeeRepository;
+        this.employeeService = employeeService;
     }
 
 
@@ -45,8 +49,20 @@ public class EmployeeController {
     @GetMapping("/all")
     public String showEmployee(Model model) {
         List<Employee> employeeList = employeeRepository.findAll();
+        model.addAttribute("filter", new Filter());
+        model.addAttribute("superVisorList",employeeRepository.searchSV());
         model.addAttribute("employeeList", employeeList);
         return "employeeList";
+    }
+
+    @PostMapping("/all")
+    public String showEmployee (Filter filter,Model model){
+        model.addAttribute("employeeList", employeeService.search(filter));
+        model.addAttribute("superVisorList",employeeRepository.searchSV());
+
+        return "employeeList";
+
+
     }
 
     @GetMapping("/update/{id}")
@@ -74,4 +90,11 @@ public class EmployeeController {
         employeeRepository.deleteById(id);
         return "redirect:/empl/all";
     }
+    @PostMapping(value = "/search")
+    public String search(Filter filter, Model model){
+        model.addAttribute("superVisor",employeeService.search(filter));
+        return "employeeList";
+    }
+
+
 }
