@@ -18,19 +18,19 @@
 <h3> -- Filtruj -- </h3>
 <form:form method="post"  modelAttribute="filter">
 
-<%--<label>Rodzaj stanowiska: </label>--%>
-<%--<form:select path="employeeTypeEnum">--%>
-<%--    <form:option value="" label="--Wybierz stanowisko--"/>--%>
-<%--    &lt;%&ndash;@elvariable id="employee" type=""&ndash;%&gt;--%>
-<%--    <form:options itemLabel="employeeTypeEnum" items="{employeeTypeEnum}"/>--%>
+<label>Rodzaj stanowiska: </label>
+<form:select path="employee">
+    <form:option value="" label="--Wybierz stanowisko--"/>
+    <%--@elvariable id="employee" type=""--%>
+    <form:options itemLabel="employeeTypeEnum" items="{employeeTypeEnum}"/>
 
-<%--</form:select>--%>
+</form:select>
     <input type="submit" value="Filtruj"/>
 
     <label>Przełożony: </label>
     <form:select path="employee">
         <form:option value="" label="--Wybierz--"/>
-        <form:options itemLabel="superVisor.firstName" items="${superVisorList}"/>
+        <form:options itemLabel="superVisor.lastName" items="${superVisorList}"/>
     </form:select>
     <input type="submit" value="Filtruj"/>
 </form:form>

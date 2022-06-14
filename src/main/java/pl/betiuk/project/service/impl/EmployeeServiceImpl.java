@@ -22,12 +22,15 @@ public class EmployeeServiceImpl<T> implements EmployeeService<Employee> {
 
    public  List<Employee> search(Filter filter){
         String superVisor;
+        String employeeTypeEnum;
         if (filter.getEmployee() == null) {
             return employeeRepository.findAll();
         }else {
             superVisor = String.valueOf(filter.getEmployee().getSuperVisor().getId());
+            employeeTypeEnum = String.valueOf(filter.getEmployee().getEmployeeTypeEnum());
         }
-        List<Employee> employeeList = employeeRepository.search(superVisor);
+
+        List<Employee> employeeList = employeeRepository.search(employeeTypeEnum,superVisor);
         return employeeList;
     }
 

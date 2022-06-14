@@ -58,6 +58,7 @@ public class EmployeeController {
     @PostMapping("/all")
     public String showEmployee (Filter filter,Model model){
         model.addAttribute("employeeList", employeeService.search(filter));
+        model.addAttribute("employeeTypeEnum", employeeService.search(filter));
         model.addAttribute("superVisorList",employeeRepository.searchSV());
 
         return "employeeList";
