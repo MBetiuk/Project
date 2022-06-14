@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.betiuk.project.model.Address;
+import pl.betiuk.project.model.Client;
 import pl.betiuk.project.repository.AddressRepository;
 import pl.betiuk.project.repository.ClientRepository;
 import pl.betiuk.project.service.ClientService;
@@ -23,18 +24,19 @@ public class AddressController {
     private final ClientService clientService;
     private final ClientRepository clientRepository;
 
-    @GetMapping("/add")
-    public String addAddress(Model model) {
+    @GetMapping("/add/{clientid}")
+    public String addAddress(Model model, @PathVariable Long clientid) {
         model.addAttribute("address", new Address());
-//        model.addAttribute("client", clientService.findById(clientId));
+        model.addAttribute("clientid", clientid);
         return "address";
     }
 
 
-    @PostMapping("/add")
-    public String addAddress(Address address) {
-//        address.setClient(clientRepository.findById(clientId).orElseThrow(EntityNotFoundException::new));
-        addressRepository.save(address);
+    @PostMapping("/add/{clientid}")
+    public String addAddress(Address address, @PathVariable Long clientid) {
+        Client client = clientRepository.findById(clientid).orElseThrow(EntityNotFoundException::new);
+        client.setAddress(address);
+        clientRepository.save(client);
         return "redirect:/clients/all";
     }
 
