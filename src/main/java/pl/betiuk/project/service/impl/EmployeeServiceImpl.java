@@ -15,26 +15,45 @@ public class EmployeeServiceImpl<T> implements EmployeeService<Employee> {
     private final EmployeeRepository employeeRepository;
 
 
-
     public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
     }
 
-   public  List<Employee> search(Filter filter){
-        String superVisor;
+    @Override
+    public List<Employee> searchEmplEnum(Filter filter) {
         String employeeTypeEnum;
+
         if (filter.getEmployee() == null) {
             return employeeRepository.findAll();
-        }else {
-            superVisor = String.valueOf(filter.getEmployee().getSuperVisor().getId());
+        } else {
             employeeTypeEnum = String.valueOf(filter.getEmployee().getEmployeeTypeEnum());
+
+        }
+        List<Employee>enumList = employeeRepository.searchEmplEnum(employeeTypeEnum);
+        return enumList;
+    }
+    
+    
+    public List<Employee> search(Filter filter) {
+        
+        String superVisor = null;
+      
+        if (filter.getEmployee() == null) {
+            return employeeRepository.findAll();
+        } else {
+            superVisor = String.valueOf(filter.getEmployee().getSuperVisor().getId());
         }
 
-        List<Employee> employeeList = employeeRepository.search(employeeTypeEnum,superVisor);
+
+        List<Employee> employeeList = employeeRepository.searchEmplEnum( superVisor);
         return employeeList;
+
     }
 
+ 
 
+
+    // TODO: 14/06/2022  po wprowadzeniu drugiego filtra - NIE FILTRUJE !!!!!
     @Override
     public Employee findById(Long id) {
         return null;
@@ -44,8 +63,6 @@ public class EmployeeServiceImpl<T> implements EmployeeService<Employee> {
     public List<Employee> findAll() {
         return employeeRepository.findAll();
     }
-
-
 
 
 }

@@ -22,16 +22,17 @@
 <form:select path="employee">
     <form:option value="" label="--Wybierz stanowisko--"/>
     <%--@elvariable id="employee" type=""--%>
-    <form:options itemLabel="employeeTypeEnum" items="{employeeTypeEnum}"/>
+    <form:options item="{employeeTypeEnum}"/>
 
-</form:select>
+</form:select><br><br>
     <input type="submit" value="Filtruj"/>
-
+    <br><br>
     <label>Przełożony: </label>
     <form:select path="employee">
         <form:option value="" label="--Wybierz--"/>
         <form:options itemLabel="superVisor.lastName" items="${superVisorList}"/>
     </form:select>
+    <br><br>
     <input type="submit" value="Filtruj"/>
 </form:form>
 

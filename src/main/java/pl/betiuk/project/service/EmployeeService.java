@@ -13,6 +13,7 @@ public interface EmployeeService <T>{
 
     List<Employee> findAll();
      List<Employee> search(Filter filter);
+    List<Employee> searchEmplEnum (Filter filter);
 
 
 
