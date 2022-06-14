@@ -21,6 +21,7 @@ public class Employee {
     private Long id;
     private String firstName;
     private String lastName;
+    @Column(columnDefinition = "varchar(255)")
     private EmployeeTypeEnum employeeTypeEnum;
 
     @ManyToOne

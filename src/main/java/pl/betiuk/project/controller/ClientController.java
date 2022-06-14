@@ -10,6 +10,7 @@ import pl.betiuk.project.model.Client;
 import pl.betiuk.project.repository.AddressRepository;
 import pl.betiuk.project.repository.ClientRepository;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 
@@ -63,6 +64,12 @@ public class ClientController {
         clientRepository.deleteById(id);
 
         return "redirect:/clients/all";
+    }
+
+    @GetMapping("/question/{id}")
+    public String question(@PathVariable Long id, Model model){
+        model.addAttribute("client", clientRepository.findById(id).orElseThrow(EntityNotFoundException::new));
+        return "clientQuestion";
     }
 
 }

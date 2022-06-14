@@ -1,21 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
   User: magda
-  Date: 11/06/2022
-  Time: 14:47
+  Date: 14/06/2022
+  Time: 22:07
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>question</title>
 </head>
 <body>
-
-<h3> -- Lista pożyczek klienta -- </h3>
-<%--<jsp:useBean id="clientsList" scope="application" type="java.util.List"/>--%>
+<h3> -- Czy chcesz usunąć Klienta? -- </h3>
 
 <style>
     table {
@@ -56,26 +52,26 @@
 </style>
 <table >
     <thead>
-    <th>Data zawarcia</th>
-    <th>Okres trwania (w miesiącach)</th>
-    <th>Kwota pożyczki</th>
+    <tr>
+        <td>
+            <%--@elvariable id="employee" type=""--%>
+            <%--<form:form method="post" action="/empl/delete/${employee.id}" modelAttribute="employee">--%>
+            <a href="/clients/delete/${client.id}"> Usuń</a>
 
+            <%--    <input type="submit" value="TAK">--%>
+            <%--</form:form>--%>
 
+        </td>
+
+        <td>
+            <%--            <form:form method="get" action="/empl" modelAttribute="employee">--%>
+            <a href="/clients/all"> Nie usuwaj</a>
+            <%--            </form:form>--%>
+
+        </td>
+    </tr>
     </thead>
-    <tbody>
-<c:forEach items="${loanList}" var="element">
 
-        <tr>
-            <td><c:out value="${element.issueDate}"/></td>
-            <td><c:out value="${element.term}"/></td>
-            <td><c:out value="${element.value}"/></td>
-        </tr>
-
-    </c:forEach>
-    </tbody>
 </table>
-<br>
-<br>
-
 </body>
 </html>

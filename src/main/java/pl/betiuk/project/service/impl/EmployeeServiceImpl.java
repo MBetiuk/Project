@@ -19,38 +19,45 @@ public class EmployeeServiceImpl<T> implements EmployeeService<Employee> {
         this.employeeRepository = employeeRepository;
     }
 
-    @Override
-    public List<Employee> searchEmplEnum(Filter filter) {
-        String employeeTypeEnum;
-
-        if (filter.getEmployee() == null) {
-            return employeeRepository.findAll();
-        } else {
-            employeeTypeEnum = String.valueOf(filter.getEmployee().getEmployeeTypeEnum());
-
-        }
-        List<Employee>enumList = employeeRepository.searchEmplEnum(employeeTypeEnum);
-        return enumList;
-    }
+//    @Override
+//    public List<Employee> searchEmplEnum(Filter filter) {
+//        String employeeTypeEnum;
+//
+//        if (filter.getEmployee() == null) {
+//            return employeeRepository.findAll();
+//        } else {
+//            employeeTypeEnum = String.valueOf(filter.getEmployee().getEmployeeTypeEnum());
+//
+//        }
+//        List<Employee>enumList = employeeRepository.searchEmplEnum(employeeTypeEnum);
+//        return enumList;
+//    }
     
     
     public List<Employee> search(Filter filter) {
         
-        String superVisor = null;
-      
+        String superVisor;
+      String status;
         if (filter.getEmployee() == null) {
-            return employeeRepository.findAll();
+            superVisor="";
         } else {
             superVisor = String.valueOf(filter.getEmployee().getSuperVisor().getId());
         }
+        if(filter.getEmployeeTypeEnum()==null){
+            status="";
+        }else {
+            status=String.valueOf(filter.getEmployeeTypeEnum());
+        }
 
-
-        List<Employee> employeeList = employeeRepository.searchEmplEnum( superVisor);
+        List<Employee> employeeList = employeeRepository.search(superVisor, status);
         return employeeList;
 
     }
 
- 
+    @Override
+    public List<Employee> searchEmplEnum(Filter filter) {
+        return null;
+    }
 
 
     // TODO: 14/06/2022  po wprowadzeniu drugiego filtra - NIE FILTRUJE !!!!!

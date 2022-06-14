@@ -25,13 +25,10 @@ public class Loan {
     private Integer term;
     private Integer value;
 
-
-//    private Integer costs;
-//    private Integer total;
-//    private Integer rate;
-//    private String agentName;
-
-//    @ManyToOne
-//    @JoinColumn(name = "client_id")
-//    private Client client;
+    public Loan(Long id, LocalDate issueDate, Integer term, Integer value) {
+        this.id = id;
+        this.issueDate = issueDate;
+        this.term = term;
+        this.value = value;
+    }
 }

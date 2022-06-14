@@ -29,4 +29,8 @@ public class Client {
     private Address address;
 
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "loan_id")
+    private Loan loan;
+
 }

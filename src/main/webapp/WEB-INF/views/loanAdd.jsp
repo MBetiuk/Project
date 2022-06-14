@@ -17,7 +17,7 @@
 <body>
 <h3>Dodaj pożyczkę</h3>
 <%--@elvariable id="loan" type=""--%>
-<form:form method="post" modelAttribute="loan">
+<form:form method="post" action="/loan/add/${clientid}"  modelAttribute="loan">
 
     <label>Data zawarcia: </label>
     <form:input type="date" path="issueDate"/><br><br>

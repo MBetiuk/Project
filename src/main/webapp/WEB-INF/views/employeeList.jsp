@@ -18,14 +18,12 @@
 <h3> -- Filtruj -- </h3>
 <form:form method="post"  modelAttribute="filter">
 
-<label>Rodzaj stanowiska: </label>
-<form:select path="employee">
-    <form:option value="" label="--Wybierz stanowisko--"/>
-    <%--@elvariable id="employee" type=""--%>
-    <form:options item="{employeeTypeEnum}"/>
-
-</form:select><br><br>
-    <input type="submit" value="Filtruj"/>
+    <label>Rodzaj stanowiska: </label>
+    <form:select path="EmployeeTypeEnum">
+        <form:option value="" label="--Wybierz stanowisko--"/>
+        <%--@elvariable id="employee" type=""--%>
+        <form:options items="${status}" />
+    </form:select>
     <br><br>
     <label>Przełożony: </label>
     <form:select path="employee">

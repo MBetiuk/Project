@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.betiuk.project.model.Employee;
+import pl.betiuk.project.model.EmployeeTypeEnum;
 import pl.betiuk.project.model.Filter;
 import pl.betiuk.project.repository.EmployeeRepository;
 import pl.betiuk.project.service.impl.EmployeeServiceImpl;
@@ -52,20 +53,19 @@ public class EmployeeController {
         model.addAttribute("filter", new Filter());
         model.addAttribute("superVisorList",employeeRepository.searchSV());
         model.addAttribute("employeeList", employeeList);
+        model.addAttribute("status", EmployeeTypeEnum.values());
         return "employeeList";
     }
 
     @PostMapping("/all")
-    public String showEmployee (Filter filter,Model model){
+    public String showEmployee (Filter filter,Model model) {
         model.addAttribute("employeeList", employeeService.search(filter));
-        model.addAttribute("employeeTypeEnum", employeeService.search(filter));
-        model.addAttribute("superVisorList",employeeRepository.searchSV());
+        model.addAttribute("status", EmployeeTypeEnum.values());
+        model.addAttribute("superVisorList", employeeRepository.searchSV());
 
         return "employeeList";
 
-
     }
-
     @GetMapping("/update/{id}")
     public String updateEmployee(@PathVariable Long id, Model model){
         model.addAttribute("employee", employeeRepository.findById(id));
@@ -91,11 +91,5 @@ public class EmployeeController {
         employeeRepository.deleteById(id);
         return "redirect:/empl/all";
     }
-    @PostMapping(value = "/search")
-    public String search(Filter filter, Model model){
-        model.addAttribute("superVisor",employeeService.search(filter));
-        return "employeeList";
-    }
-
 
 }
